@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ComposePost } from '../components';
 
 const Home = () => {
   return (
@@ -7,9 +8,7 @@ const Home = () => {
         <HomeTitle>Home</HomeTitle>
         <SortBySpan>Sort by:</SortBySpan>
       </HomeTitleContainer>
-      <PostInputContainer>
-        <PostInput />
-      </PostInputContainer>
+      <ComposePost />
     </Wrapper>
   );
 };
