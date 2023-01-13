@@ -1,6 +1,6 @@
 import { Routes, Route, BrowserRouter, Outlet } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import Home from './utils/pages/Home';
+import { Sidebar } from './components';
+import Home from './pages/Home';
 
 const App = () => {
   return (
