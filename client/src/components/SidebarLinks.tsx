@@ -39,6 +39,7 @@ export default SidebarLinks;
 const SideabarLinkContainer = styled.div<{ borderBottom: boolean }>`
   display: flex;
   padding: 1.2rem 0rem;
+  width: 100%;
   border-bottom: ${(props) =>
     props.borderBottom ? '2px solid rgb(0,0,0,10%)' : 'none'};
 `;
@@ -61,20 +62,22 @@ const SidebarLinkTitle = styled.p`
 const Badge = styled.div`
   position: relative;
   display: flex;
-  background-color: red;
   justify-content: center;
   align-items: center;
   background-color: rgba(217, 217, 217, 25%);
-  border-radius: 10px;
-  width: 28px;
-  height: 28px;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
   text-align: center;
-  color: black;
-  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: #f35e6a;
 `;
 
 const BadgeContainer = styled.div`
   position: absolute;
+  height: 45px;
   display: flex;
-  left: 240px;
+  left: 80px;
 `;
