@@ -1,6 +1,7 @@
 :root {
   --clr-green-primary: #c3e991;
   --clr-green-primary-hover: #9dca61;
+  --clr-like-red: #ed4956;
 }
 
 * {
@@ -12,4 +13,8 @@
 body {
   font-family: 'Lato', sans-serif;
   font-family: 'Poppins', sans-serif;
+  background-color: #f0f2f5;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
