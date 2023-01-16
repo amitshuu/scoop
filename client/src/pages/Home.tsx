@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { ComposePost, Posts } from '../components';
-import { mobile } from '../utils/responsive';
 
 const Home = () => {
   return (

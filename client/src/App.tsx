@@ -1,5 +1,5 @@
-import { Routes, Route, BrowserRouter, Outlet } from 'react-router-dom';
-import { Sidebar, SidebarLayout } from './components';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { SidebarLayout } from './components';
 import Home from './pages/Home';
 
 const App = () => {

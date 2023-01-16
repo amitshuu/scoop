@@ -1,10 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import Suggestions from './Suggestions';
 import Groups from './Groups';
 import { mobile } from '../utils/responsive';
-import { Outlet } from 'react-router-dom';
 
 const RightSidebar = () => {
   return (

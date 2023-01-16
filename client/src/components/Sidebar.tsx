@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import amit from '../assets/amit.jpg';
 import { Outlet } from 'react-router-dom';
 import { SidebarLinks, Logo } from './';
@@ -58,5 +57,3 @@ const Username = styled.p`
   margin-left: 1rem;
   font-weight: 400;
 `;
-
-const Test = styled.div``;

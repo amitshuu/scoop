@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import amit from '../assets/amit.jpg';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
 import { mobile } from '../utils/responsive';
 const Posts = () => {
