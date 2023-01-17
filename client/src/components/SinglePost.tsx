@@ -1,28 +1,17 @@
 import styled from 'styled-components';
 import amit from '../assets/amit.jpg';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useState } from 'react';
 import { mobile } from '../utils/responsive';
-const Posts = () => {
-  const TextExpander = (text: string) => {
-    const [expanded, setExpanded] = useState(false);
-    const truncatedText = text.slice(0, 350);
-    const handleClick = () => setExpanded(!expanded);
+import { useExpandableText } from '../utils/customHooks';
+import SinglePostBottomBar from './SinglePostBottomBar';
 
-    return (
-      <div>
-        {expanded ? text : truncatedText}
-        {text.length >= 350 && (
-          <span
-            style={{ color: 'rgb(0,0,0,60%)', cursor: 'pointer' }}
-            onClick={handleClick}
-          >
-            {expanded ? ' ...Show less' : ' ...Show more'}
-          </span>
-        )}
-      </div>
+const Posts = () => {
+  const textLimit = 350;
+  const { expanded, handleClick, initialText, truncatedText } =
+    useExpandableText(
+      `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quidem ea quaerat veritatis pariatur et error accusamus inventore repudiandae, illo velit deleniti soluta eligendi perspiciatis doloribus rerum. Dicta, nobis possimus!
+  Consequatur possimus commodi, architecto qui nostrum velit explicabo quia eligendi rem? Ducimus eaque facilis illum, praesentium accusantium eveniet architecto, voluptatibus soluta dicta unde nemo totam quod sint, blanditiis enim inventore.`,
+      textLimit
     );
-  };
 
   return (
     <Wrapper>
@@ -35,19 +24,18 @@ const Posts = () => {
           </div>
         </PostComposerContainer>
         <PostDetails>
-          {TextExpander(
-            'loloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasloasdasdasdasdasdasdasdasdasdsadasdasasdasdasdasdasdasdasdasdasdsadasdas'
+          <span>{expanded ? initialText : truncatedText}</span>
+          {initialText.length >= 350 && (
+            <span
+              style={{ color: 'rgb(0,0,0,60%)', cursor: 'pointer' }}
+              onClick={handleClick}
+            >
+              {expanded ? ' ...Show Less' : ' ...Show More'}
+            </span>
           )}
         </PostDetails>
       </MainContent>
-      <BottomPanelDiv>
-        <FavoriteIcon />
-        <Likes>32</Likes>
-        <FavoriteIcon />
-        <Likes>32</Likes>
-        <FavoriteIcon />
-        <Likes>32</Likes>
-      </BottomPanelDiv>
+      <SinglePostBottomBar />
     </Wrapper>
   );
 };
@@ -58,14 +46,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 75%;
+  width: 100%;
   max-width: 650px;
   border-radius: 16px;
   margin-bottom: 1rem;
   min-height: 250px;
   border: 1px solid rgb(0, 0, 0, 10%);
   background-color: white;
-  ${mobile({ width: '90%' })}
+  ${mobile({ width: '100%' })}
 `;
 
 const MainContent = styled.div`
@@ -95,14 +83,7 @@ const PostComposerImage = styled.img`
 
 const PostDetails = styled.p`
   margin-top: 1rem;
-`;
-
-const BottomPanelDiv = styled.div`
-  display: flex;
-  width: 100%;
-  padding: 0 2rem 2rem 2rem;
-  //top right bottom left
-`;
-const Likes = styled.span`
-  margin-right: 1rem;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.33333;
 `;
