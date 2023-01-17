@@ -18,3 +18,9 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
