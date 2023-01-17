@@ -25,6 +25,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 40%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
   .search-icon {
     position: absolute;
     right: 10px;

@@ -42,15 +42,16 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-top: 3rem;
   width: 100%;
-  ${mobile({ width: '90%' })}
 `;
 
 const HomeTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 75%;
   max-width: 650px;
   ${mobile({ display: 'none' })}
@@ -64,7 +65,8 @@ const SortBySpan = styled.span``;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 75%;
+
+  width: 100%;
   max-width: 650px;
   margin-top: 2rem;
   background-color: white;

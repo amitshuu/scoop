@@ -33,8 +33,13 @@ export default Sidebar;
 
 const Wrapper = styled.div`
   display: flex;
+  position: fixed;
   flex-direction: column;
   width: 40%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
   ${mobile({ display: 'none' })}
 `;
 
