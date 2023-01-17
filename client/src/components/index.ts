@@ -8,6 +8,9 @@ import SidebarLayout from './SidebarLayout';
 import SidebarLinks from './SidebarLinks';
 import Suggestions from './Suggestions';
 import Posts from './Posts';
+import SinglePostBottomBar from './SinglePostBottomBar';
+import SinglePostComment from './SinglePostComment';
+
 export {
   Logo,
   Sidebar,
@@ -17,6 +20,8 @@ export {
   RightSidebar,
   Suggestions,
   Posts,
+  SinglePostComment,
   Groups,
   SinglePost,
+  SinglePostBottomBar,
 };
