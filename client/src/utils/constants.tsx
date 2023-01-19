@@ -10,7 +10,9 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { ISidebarLinks } from '../types/ISidebarLinks';
+import { IMobileNavLinks, ISidebarLinks } from '../types/ISidebarLinks';
+import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
+
 export const sidebar_links: ISidebarLinks[] = [
   {
     id: 1,
@@ -64,6 +66,41 @@ export const sidebar_links: ISidebarLinks[] = [
     icon: <SettingsOutlinedIcon />,
     activeIcon: <SettingsIcon />,
     borderBottom: false,
+    badge: false,
+  },
+];
+
+export const mobile_navbar_links: IMobileNavLinks[] = [
+  {
+    title: 'Home',
+    id: 1,
+    path: '/',
+    icon: <HomeOutlinedIcon />,
+    activeIcon: <HomeIcon />,
+    badge: false,
+  },
+  {
+    title: 'Friends',
+    id: 3,
+    path: '/friends',
+    icon: <PeopleOutlineIcon />,
+    activeIcon: <PeopleIcon />,
+    badge: false,
+  },
+  {
+    title: 'Notifications',
+    id: 4,
+    path: '/notifications',
+    icon: <NotificationsNoneIcon />,
+    activeIcon: <NotificationsIcon />,
+    badge: true,
+  },
+  {
+    title: 'Post',
+    id: 2,
+    path: '#',
+    icon: <AddCommentOutlinedIcon />,
+    activeIcon: <HomeIcon />,
     badge: false,
   },
 ];
