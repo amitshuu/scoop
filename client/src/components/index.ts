@@ -10,6 +10,8 @@ import Suggestions from './Suggestions';
 import Posts from './Posts';
 import SinglePostBottomBar from './SinglePostBottomBar';
 import SinglePostComment from './SinglePostComment';
+import MobileTopBar from './MobileTopBar';
+import MobileBottomBar from './MobileBottomBar';
 
 export {
   Logo,
@@ -23,5 +25,7 @@ export {
   SinglePostComment,
   Groups,
   SinglePost,
+  MobileTopBar,
   SinglePostBottomBar,
+  MobileBottomBar,
 };
