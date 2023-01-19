@@ -7,24 +7,22 @@ const SidebarLinks = () => {
     <>
       {sidebar_links.map((link) => {
         return (
-          <SideabarLinkContainer borderBottom={link.borderBottom}>
+          <SideabarLinkContainer key={link.id} borderBottom={link.borderBottom}>
             <SidebarLink to={link.path}>
-              {({ isActive }: any) =>
-                isActive ? (
-                  <SidebarLinkIcon>{link.activeIcon}</SidebarLinkIcon>
-                ) : (
-                  <SidebarLinkIcon>{link.icon}</SidebarLinkIcon>
-                )
-              }
-            </SidebarLink>
-            <SidebarLink to={link.path}>
-              <SidebarLinkTitle>{link.title}</SidebarLinkTitle>
-              {link.badge ? (
-                <BadgeContainer>
-                  <Badge>12</Badge>
-                </BadgeContainer>
-              ) : (
-                ''
+              {({ isActive }: any) => (
+                <>
+                  <SidebarLinkIcon>
+                    {isActive ? link.activeIcon : link.icon}
+                  </SidebarLinkIcon>
+                  <SidebarLinkTitle>{link.title}</SidebarLinkTitle>
+                  {link.badge ? (
+                    <BadgeContainer>
+                      <Badge>12</Badge>
+                    </BadgeContainer>
+                  ) : (
+                    ''
+                  )}
+                </>
               )}
             </SidebarLink>
           </SideabarLinkContainer>
