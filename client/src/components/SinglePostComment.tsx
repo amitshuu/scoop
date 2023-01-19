@@ -63,6 +63,7 @@ const CommentContentContainer = styled.div`
   width: 100%;
   background-color: #f0f2f5;
   padding: 1rem;
+  border-radius: 16px;
 `;
 const UserName = styled.span`
   font-size: 14px;

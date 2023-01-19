@@ -29,6 +29,7 @@ const Wrapper = styled.div`
   top: 0;
   left: 0;
   height: 100vh;
+  /* max-width: 350px; */
   .search-icon {
     position: absolute;
     right: 10px;

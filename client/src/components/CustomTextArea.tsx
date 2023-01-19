@@ -37,5 +37,9 @@ const TextArea = styled.textarea`
   border-radius: 16px;
   outline: none;
   width: 100%;
-  height: 80%;
+  height: 75%;
+  color: #050505;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: inherit;
 `;

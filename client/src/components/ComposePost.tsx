@@ -45,15 +45,15 @@ const Wrapper = styled.div`
   justify-content: center;
   margin-top: 3rem;
   width: 100%;
+  ${mobile({ marginTop: '0rem' })}
 `;
 
 const HomeTitleContainer = styled.div`
+  max-width: 650px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  width: 75%;
-  max-width: 650px;
+  width: 100%;
   ${mobile({ display: 'none' })}
 `;
 const HomeTitle = styled.h1`
@@ -65,12 +65,13 @@ const SortBySpan = styled.span``;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-
+  border: 1px solid rgb(0, 0, 0, 10%);
   width: 100%;
   max-width: 650px;
   margin-top: 2rem;
   background-color: white;
   border-radius: 16px;
+  ${mobile({ width: '100%' })}
 `;
 
 const TopBarContainer = styled.div`
@@ -97,9 +98,9 @@ const PostComposingDiv = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: 16px;
   height: 50px;
-  width: 80%;
+  width: 70%;
   transition: all 0.2s;
   &:hover {
     background-color: #d5d7db9e;
