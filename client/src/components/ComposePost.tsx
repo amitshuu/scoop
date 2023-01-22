@@ -1,38 +1,50 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import amit from '../assets/amit.jpg';
 import ImageIcon from '@mui/icons-material/Image';
 import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import { mobile } from '../utils/responsive';
+import ComposePostModal from './ComposePostModal';
+
 const ComposePost = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePostModal = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <Wrapper>
-      <HomeTitleContainer>
-        <HomeTitle>Home</HomeTitle>
-        <SortBySpan>Sort by:</SortBySpan>
-      </HomeTitleContainer>
-      <Container>
-        <TopBarContainer>
-          <AvatarImage src={amit} />
-          <PostComposingDiv>
-            <Placeholder>What do you want to share Amit?</Placeholder>
-          </PostComposingDiv>
-        </TopBarContainer>
-        <BottomBarContainer>
-          <PostType>
-            <ImageIcon
-              style={{
-                color: 'var(--clr-green-primary)',
-              }}
-            />
-            <Text>Add Image</Text>
-          </PostType>
-          <PostType>
-            <VideoCameraBackIcon style={{ color: 'var(--clr-like-red)' }} />
-            <Text>Add Video</Text>
-          </PostType>
-        </BottomBarContainer>
-      </Container>
-    </Wrapper>
+    <>
+      <ComposePostModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <Wrapper>
+        <HomeTitleContainer>
+          <HomeTitle>Home</HomeTitle>
+          <SortBySpan>Sort by:</SortBySpan>
+        </HomeTitleContainer>
+        <Container>
+          <TopBarContainer>
+            <AvatarImage src={amit} />
+            <PostComposingDiv onClick={togglePostModal}>
+              <Placeholder>What do you want to share Amit?</Placeholder>
+            </PostComposingDiv>
+          </TopBarContainer>
+          <BottomBarContainer>
+            <PostType>
+              <ImageIcon
+                style={{
+                  color: 'var(--clr-green-primary)',
+                }}
+              />
+              <Text>Add Image</Text>
+            </PostType>
+            <PostType>
+              <VideoCameraBackIcon style={{ color: 'var(--clr-like-red)' }} />
+              <Text>Add Video</Text>
+            </PostType>
+          </BottomBarContainer>
+        </Container>
+      </Wrapper>
+    </>
   );
 };
 
