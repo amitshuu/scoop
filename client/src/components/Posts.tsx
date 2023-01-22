@@ -5,8 +5,8 @@ import { SinglePost } from '.';
 const Posts = () => {
   return (
     <Wrapper>
-      <SinglePost />
-      <SinglePost />
+      <SinglePost postType='image' />
+      <SinglePost postType='video' />
       <SinglePost />
     </Wrapper>
   );

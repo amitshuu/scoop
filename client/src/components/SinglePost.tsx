@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 import amit from '../assets/amit.jpg';
+import test from '../assets/test.mp4';
+import shinobu from '../assets/shinobu.jpg';
 import { mobile } from '../utils/responsive';
 import { useExpandableText } from '../utils/customHooks';
 import SinglePostBottomBar from './SinglePostBottomBar';
 
-const Posts = () => {
-  const textLimit = 350;
+type IProps = {
+  postType?: 'image' | 'video';
+};
+
+const Posts: React.FC<IProps> = ({ postType }) => {
+  const textLimit = postType ? 125 : 350;
   const { expanded, handleClick, initialText, truncatedText } =
     useExpandableText(
       `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quidem ea quaerat veritatis pariatur et error accusamus inventore repudiandae, illo velit deleniti soluta eligendi perspiciatis doloribus rerum. Dicta, nobis possimus!
@@ -33,6 +39,17 @@ const Posts = () => {
               {expanded ? ' ...Show Less' : ' ...Show More'}
             </span>
           )}
+          {postType === 'image' ? (
+            <Test>
+              <PostImage src={amit} />
+            </Test>
+          ) : (
+            postType === 'video' && (
+              <video width='100%' controls>
+                <source src={test} type='video/mp4' />
+              </video>
+            )
+          )}
         </PostDetails>
       </MainContent>
       <SinglePostBottomBar />
@@ -59,8 +76,8 @@ const Wrapper = styled.div`
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem;
   overflow: hidden;
+  padding: 1.5rem;
   word-wrap: break-word;
 `;
 
@@ -86,4 +103,23 @@ const PostDetails = styled.p`
   font-size: 15px;
   font-weight: 400;
   line-height: 1.33333;
+`;
+
+const PostImage = styled.img`
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
+`;
+
+const Test = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+`;
+
+const Video = styled.video`
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
 `;
