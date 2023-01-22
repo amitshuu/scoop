@@ -9,7 +9,7 @@ const SidebarLinks = () => {
         return (
           <SideabarLinkContainer key={link.id} borderBottom={link.borderBottom}>
             <SidebarLink to={link.path}>
-              {({ isActive }: any) => (
+              {({ isActive }: { isActive: boolean }) => (
                 <>
                   <SidebarLinkIcon>
                     {isActive ? link.activeIcon : link.icon}
