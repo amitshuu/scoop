@@ -12,6 +12,7 @@ import SinglePostBottomBar from './SinglePostBottomBar';
 import SinglePostComment from './SinglePostComment';
 import MobileTopBar from './MobileTopBar';
 import MobileBottomBar from './MobileBottomBar';
+import ComposePostModal from './ComposePostModal';
 
 export {
   Logo,
@@ -28,4 +29,5 @@ export {
   MobileTopBar,
   SinglePostBottomBar,
   MobileBottomBar,
+  ComposePostModal,
 };
