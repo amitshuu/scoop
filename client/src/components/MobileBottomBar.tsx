@@ -14,6 +14,11 @@ const MobileBottomBar = () => {
               <Link to={link.path!}>
                 <Icon>{link.icon}</Icon>
                 <Title>{link.title}</Title>
+                {link.badge && (
+                  <BadgeContainer>
+                    <Badge>12</Badge>
+                  </BadgeContainer>
+                )}
               </Link>
             </LinkContainer>
           );
@@ -55,3 +60,25 @@ const Icon = styled.p`
   text-align: center;
 `;
 const Title = styled.p``;
+
+const Badge = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 55px;
+  background-color: rgba(217, 217, 217, 25%);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: #f35e6a;
+`;
+
+const BadgeContainer = styled.div`
+  position: absolute;
+  top: 2px;
+`;

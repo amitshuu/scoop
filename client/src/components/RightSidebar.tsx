@@ -26,10 +26,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 40%;
   position: sticky;
+
   top: 0;
   left: 0;
   height: 100vh;
-  /* max-width: 350px; */
+  /* max-width: 650px; */
   .search-icon {
     position: absolute;
     right: 10px;
@@ -39,9 +40,12 @@ const Wrapper = styled.div`
 
 const MainContentDiv = styled.div`
   padding: 3rem 4rem;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
   border-left: 2px solid rgb(0, 0, 0, 10%);
+  max-width: 350px;
 `;
 
 const SearchInputDiv = styled.div`

@@ -24,3 +24,21 @@ body {
   height: 35px;
   border-radius: 50%;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #88888860;
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.disable-scroll {
+  overflow-y: hidden;
+}

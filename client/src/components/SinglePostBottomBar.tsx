@@ -33,7 +33,15 @@ const SinglePostBottomBar = () => {
         <>
           <InputContainer>
             <UserAvatar src={amit} className='user-avatar' />
-            <CustomTextArea value={commentValue} onChange={setCommentValue} />
+            <TextAreaContainer>
+              <CustomTextArea
+                value={commentValue}
+                onChange={setCommentValue}
+                placeholder='Add a comment...'
+                withOverflow={true}
+                withBorder={false}
+              />
+            </TextAreaContainer>
           </InputContainer>
           <SinglePostComment />
           <SinglePostComment />
@@ -49,11 +57,12 @@ export default SinglePostBottomBar;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
   padding: 0rem 2rem;
+
   min-height: 75px;
   border-top: 1px solid rgb(0, 0, 0, 10%);
-  justify-content: center;
 `;
 
 const Span = styled.span`
@@ -69,8 +78,16 @@ const BottomPanelIcons = styled.div`
 const InputContainer = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   align-items: center;
   margin-bottom: 2rem;
+`;
+
+const TextAreaContainer = styled.div`
+  width: 100%;
+  border: 2px solid rgb(217, 217, 217, 60%);
+  border-radius: 16px;
+  height: 100%;
 `;
 
 const UserAvatar = styled.img`

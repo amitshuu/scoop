@@ -4,9 +4,19 @@ import styled from 'styled-components';
 interface Props {
   value: string;
   onChange: (value: string) => void;
+  placeholder: string;
+  withBorder?: boolean;
+  withOverflow?: boolean;
+  maxHeight?: string;
 }
 
-const CustomTextArea: React.FC<Props> = ({ value, onChange }) => {
+const CustomTextArea = ({
+  value,
+  onChange,
+  placeholder,
+  withOverflow = false,
+  maxHeight = '350px',
+}: Props) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -21,24 +31,30 @@ const CustomTextArea: React.FC<Props> = ({ value, onChange }) => {
     <TextArea
       ref={textareaRef}
       value={value}
-      placeholder='Add a comment...'
+      placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
+      withOverflow={withOverflow}
+      maxHeight={maxHeight}
     />
   );
 };
 export default CustomTextArea;
 
-const TextArea = styled.textarea`
+const TextArea = styled.textarea<{
+  withOverflow: boolean;
+  maxHeight: string;
+}>`
   display: flex;
   resize: none;
-  overflow: hidden;
   padding: 10px;
-  border: 2px solid rgb(217, 217, 217, 60%);
   border-radius: 16px;
   outline: none;
   width: 100%;
-  height: 75%;
+  border: none;
+  height: 70%;
+  max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : 'none')};
   color: #050505;
+  overflow-y: ${({ withOverflow }) => (withOverflow ? 'auto' : 'hidden')};
   font-weight: 400;
   font-size: 15px;
   font-family: inherit;
