@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import React, { useState, useEffect } from 'react';
-import Test from './Test';
 import amit from '../assets/amit.jpg';
 import shinobu from '../assets/shinobu.jpg';
 import CustomTextArea from './CustomTextArea';
