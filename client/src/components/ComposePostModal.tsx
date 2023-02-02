@@ -1,17 +1,20 @@
 import styled from '@emotion/styled';
 import React, { useState, useEffect } from 'react';
+import Test from './Test';
 import amit from '../assets/amit.jpg';
+import shinobu from '../assets/shinobu.jpg';
 import CustomTextArea from './CustomTextArea';
 import ImageIcon from '@mui/icons-material/Image';
 import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 
 type Props = {
   isOpen: boolean;
-  onClose: any;
+  onClose: React.MouseEventHandler<HTMLDivElement>;
 };
 
 const ComposePostModal: React.FC<Props> = ({ isOpen, onClose }) => {
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
+  const [withImage, setWithImage] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -33,15 +36,7 @@ const ComposePostModal: React.FC<Props> = ({ isOpen, onClose }) => {
               <UserPhoto src={amit} />
               <UserName>Amit Shukrun</UserName>
             </UserDeatilsContainer>
-            <TextAreaContainer>
-              <CustomTextArea
-                onChange={setValue}
-                value={value}
-                placeholder='What do you want to talk about?'
-                withBorder={false}
-                withOverflow={true}
-              />
-            </TextAreaContainer>
+            <CustomTextArea imageSrc={shinobu} />
             <BottomBarContainer>
               <PostType>
                 <ImageIcon
@@ -85,6 +80,10 @@ const Container = styled.div`
   flex-direction: column;
   background-color: white;
   width: 35%;
+  /* height: 100%; */
+  /* overflow-y: scroll; */
+  max-height: 650px;
+  max-width: 550px;
   border-radius: 12px;
 `;
 
@@ -113,7 +112,11 @@ const UserPhoto = styled.img`
 `;
 
 const TextAreaContainer = styled.div`
-  padding: 0rem 1rem 2rem 1rem;
+  overflow: none;
+  border: none;
+  max-height: 350px;
+  max-width: 550px;
+  padding: 1.5rem;
 `;
 
 const BottomBarContainer = styled.div`
@@ -122,6 +125,9 @@ const BottomBarContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   padding: 2rem 1.5rem;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
 `;
 const PostType = styled.div`
   display: flex;
@@ -152,4 +158,14 @@ const PublishButton = styled.button`
   &:hover {
     background-color: var(--clr-green-primary-hover);
   }
+`;
+
+const PostImageContainer = styled.div`
+  display: flex;
+  border: 2px solid blue;
+  width: 100%;
+`;
+const PostImage = styled.img`
+  max-height: 450px;
+  width: 100%;
 `;
