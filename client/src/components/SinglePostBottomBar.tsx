@@ -3,17 +3,15 @@ import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import styled from 'styled-components';
 import { useState } from 'react';
-import SinglePostComment from './SinglePostComment';
-import amit from '../assets/amit.jpg';
-import CustomTextArea from './CustomTextArea';
+import CommentSection from './CommentSection';
 
 const SinglePostBottomBar = () => {
   const [toggleComments, setToggleComments] = useState(false);
-  const [commentValue, setCommentValue] = useState('');
 
   const toggleCommentsHandler = () => {
     setToggleComments((prevState) => !prevState);
   };
+
   return (
     <Wrapper>
       <BottomPanelIcons>
@@ -29,25 +27,9 @@ const SinglePostBottomBar = () => {
         <BookmarkBorderOutlinedIcon style={{ cursor: 'pointer' }} />
         <Span>4</Span>
       </BottomPanelIcons>
-      {toggleComments && (
-        <>
-          <InputContainer>
-            <UserAvatar src={amit} className='user-avatar' />
-            <TextAreaContainer>
-              <CustomTextArea
-                value={commentValue}
-                onChange={setCommentValue}
-                placeholder='Add a comment...'
-                withOverflow={true}
-                withBorder={false}
-              />
-            </TextAreaContainer>
-          </InputContainer>
-          <SinglePostComment />
-          <SinglePostComment />
-          <SinglePostComment />
-        </>
-      )}
+      {toggleComments ? (
+        <CommentSection toggleComments={toggleComments} />
+      ) : null}
     </Wrapper>
   );
 };
@@ -73,24 +55,4 @@ const Span = styled.span`
 const BottomPanelIcons = styled.div`
   margin: 2rem 0rem;
   display: flex;
-`;
-
-const InputContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  margin-bottom: 2rem;
-`;
-
-const TextAreaContainer = styled.div`
-  width: 100%;
-  border: 2px solid rgb(217, 217, 217, 60%);
-  border-radius: 16px;
-  height: 100%;
-`;
-
-const UserAvatar = styled.img`
-  margin-right: 1rem;
-  align-self: start;
 `;
