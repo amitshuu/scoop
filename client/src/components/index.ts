@@ -13,6 +13,7 @@ import SinglePostComment from './SinglePostComment';
 import MobileTopBar from './MobileTopBar';
 import MobileBottomBar from './MobileBottomBar';
 import ComposePostModal from './ComposePostModal';
+import CommentSection from './CommentSection';
 
 export {
   Logo,
@@ -30,4 +31,5 @@ export {
   SinglePostBottomBar,
   MobileBottomBar,
   ComposePostModal,
+  CommentSection,
 };
