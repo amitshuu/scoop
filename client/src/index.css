@@ -19,6 +19,13 @@ body {
   overflow-x: hidden;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .user-avatar {
   width: 35px;
   height: 35px;
