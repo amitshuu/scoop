@@ -14,6 +14,7 @@ import MobileTopBar from './MobileTopBar';
 import MobileBottomBar from './MobileBottomBar';
 import ComposePostModal from './ComposePostModal';
 import CommentSection from './CommentSection';
+import LoginFormComponent from './LoginFormComponent';
 
 export {
   Logo,
@@ -32,4 +33,5 @@ export {
   MobileBottomBar,
   ComposePostModal,
   CommentSection,
+  LoginFormComponent,
 };
