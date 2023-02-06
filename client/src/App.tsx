@@ -1,18 +1,11 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { MobileBottomBar, MobileTopBar, SidebarLayout } from './components';
-import Home from './pages/Home';
+import { Home, LoginPage } from './pages';
 
 const App = () => {
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '100%',
-        }}
-      >
+      <main className='app-container'>
         <BrowserRouter>
           <MobileTopBar />
           <Routes>
@@ -20,10 +13,11 @@ const App = () => {
               <Route path='/' element={<Home />} />
               <Route path='/friends' element={<div>friends</div>} />
             </Route>
+            <Route path='/login' element={<LoginPage />} />
           </Routes>
           <MobileBottomBar />
         </BrowserRouter>
-      </div>
+      </main>
     </>
   );
 };
