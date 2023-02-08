@@ -4,7 +4,7 @@ export const registerInputValidator = (
   email: string,
   password: string
 ) => {
-  let errors: any = {};
+  let errors: Record<string, string> = {};
 
   const checkUsername = () => {
     if (!userName) {
@@ -48,7 +48,7 @@ export const registerInputValidator = (
 };
 
 export const loginInputValidator = (userName: string, password: string) => {
-  let errors: any = {};
+  let errors: Record<string, string> = {};
 
   const checkUsername = () => {
     if (!userName) {
