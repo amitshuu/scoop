@@ -4,6 +4,7 @@ import 'dotenv/config';
 import { connectDB } from './database/connect';
 import mongoose from 'mongoose';
 import userRouter from './routes/userRouter';
+import { notFoundMiddleware } from './middlewares/notFoundRoute';
 
 const app = express();
 app.use(express.json());
@@ -14,6 +15,8 @@ app.use('/api/auth', userRouter);
 app.get('/', (req, res) => {
   res.send('Hello world!');
 });
+
+app.use(notFoundMiddleware);
 
 const startServer = async () => {
   try {
