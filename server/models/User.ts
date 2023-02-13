@@ -1,19 +1,9 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import bcryptjs from 'bcryptjs';
 import { resolve } from 'path';
+import { IUserSchema } from '../helpers/types';
 
-type User = {
-  userName: string;
-  email: string;
-  password: string;
-  firstName: string;
-  lastName?: string;
-  profilePicture?: string;
-  _id: mongoose.Schema.Types.ObjectId;
-  comparePasswords: (password: string) => Promise<boolean>;
-};
-
-const UserSchema = new mongoose.Schema<User>({
+const UserSchema = new mongoose.Schema<IUserSchema>({
   userName: {
     type: String,
     minLength: 6,
