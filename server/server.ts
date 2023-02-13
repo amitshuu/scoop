@@ -5,16 +5,14 @@ import { connectDB } from './database/connect';
 import mongoose from 'mongoose';
 import userRouter from './routes/userRouter';
 import { notFoundMiddleware } from './middlewares/notFoundRoute';
+import cookieParser from 'cookie-parser';
 
 const app = express();
+app.use(cookieParser());
 app.use(express.json());
 app.use(morgan('dev'));
 
 app.use('/api/auth', userRouter);
-
-app.get('/', (req, res) => {
-  res.send('Hello world!');
-});
 
 app.use(notFoundMiddleware);
 
