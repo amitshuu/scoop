@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { signJWT } from '../helpers/jwtFunctions';
 import {
   loginInputValidator,
   registerInputValidator,
@@ -46,6 +47,18 @@ export const login = async (req: Request, res: Response) => {
   }
 
   const user = await User.findOne({ userName }).select('+password');
+
+  if (user) {
+    const { accessToken, refreshToken } = signJWT(user);
+    res.cookie('refreshToken', refreshToken, {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+    });
+    res.cookie('accessToken', accessToken, {
+      maxAge: 5 * 60 * 1000,
+      httpOnly: true,
+    });
+  }
 
   try {
     const isPasswordCorrect = await user?.comparePasswords(password);
