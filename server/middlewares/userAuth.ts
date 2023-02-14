@@ -1,20 +1,9 @@
 import { NextFunction, Response } from 'express';
 import jwt, { TokenExpiredError } from 'jsonwebtoken';
 import decode from 'jwt-decode';
+import { validateToken } from '../helpers/jwtFunctions';
 import { CustomRequest, DecodedJWT, UserType } from '../helpers/types';
 import User from '../models/User';
-
-const validateToken = async (
-  token: string,
-  key: string
-): Promise<DecodedJWT> => {
-  try {
-    const payload = jwt.verify(token, key) as DecodedJWT;
-    return payload;
-  } catch (error) {
-    throw error;
-  }
-};
 
 export const userAuth = async (
   req: CustomRequest,
