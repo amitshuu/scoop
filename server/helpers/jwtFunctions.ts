@@ -1,4 +1,4 @@
-import { UserType } from './types';
+import { DecodedJWT, UserType } from './types';
 import jwt from 'jsonwebtoken';
 
 export const signJWT = (user: UserType | null) => {
@@ -19,4 +19,16 @@ export const signJWT = (user: UserType | null) => {
   );
 
   return { accessToken, refreshToken };
+};
+
+export const validateToken = async (
+  token: string,
+  key: string
+): Promise<DecodedJWT> => {
+  try {
+    const payload = jwt.verify(token, key) as DecodedJWT;
+    return payload;
+  } catch (error) {
+    throw error;
+  }
 };
